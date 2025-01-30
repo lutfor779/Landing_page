@@ -1,0 +1,10 @@
+@import "tailwindcss";
+
+@theme {
+    --font-jakarta: "Plus Jakarta Sans", "serif";
+}
+
+html,
+body {
+    font-size: 10px;
+}
