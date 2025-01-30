@@ -42,7 +42,8 @@ const main = () => {
 				if (stats.isDirectory()) {
 					walkPublicDirectory(fullPath);
 				} else if (stats.isFile()) {
-					assests[camelCaseFileName(file)] = fullPath.replace(allDirectory, "");
+					assests[camelCaseFileName(file)] =
+						"/" + fullPath.replace(allDirectory, "");
 				}
 			});
 	};
