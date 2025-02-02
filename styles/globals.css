@@ -1,10 +1,74 @@
 @import "tailwindcss";
+@import "./fonts.css";
+
+:root {
+	--primary-color: #f84923;
+	--secondary-color: #4923f8;
+	--accent-color: #23f849;
+	--title-color: #080809;
+	--body-color: #363739;
+	--black-color: #000000;
+	--gray-color: #bdbdbd;
+	--white-color: #ffffff;
+	--warning-color: #ffb539;
+	--success-color: #28a745;
+	--error-color: #dc3545;
+	--border-color: #cdcdcd;
+	--light-border-color: #e6e6e6;
+	--background-color: #ffffff;
+
+	/* fonts */
+	--title-font: "Plus Jakarta Sans", sans-serif;
+	--body-font: "Source Serif 4", serif;
+	/* --body-font: "Plus Jakarta Sans", sans; */
+	--styled-font: "IBM Plex Mono", serif;
+}
 
 @theme {
-    --font-jakarta: "Plus Jakarta Sans", "serif";
+	/* fonts */
+	--font-ibm: "IBM Plex Mono", "serif";
+	--font-jakarta: "Plus Jakarta Sans", "sans-serif";
+	--font-source-serif: "Source_Serif_4", "serif";
+
+	/* colors */
+	--color-primary: var(--primary-color);
+	--color-secondary: var(--secondary-color);
+	--color-accent: var(--accent-color);
+	--color-white: var(--white-color);
+	--color-black: var(--black-color);
+	--color-error: var(--error-color);
+	--color-gray: var(--gray-color);
 }
 
 html,
 body {
-    font-size: 10px;
+	font-family: var(--body-font);
+	font-size: 10px;
+	color: var(--body-color);
+	background: var(--background-color);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: var(--styled-font);
+	color: var(--title-color);
+}
+
+span,
+p {
+	font-family: var(--body-font);
+	color: var(--body-color);
+}
+
+a {
+	color: var(--primary-color);
+	text-decoration: none;
+}
+
+a:hover {
+	color: var(--title-color);
 }
