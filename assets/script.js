@@ -26,13 +26,12 @@ const camelCaseFileName = (fileName) => {
 };
 
 const main = () => {
-	const assests = [];
-	const assests2 = {};
+	const imports = [];
+	const exports = [];
 
-	const allDirectory = "../assets";
+	const assetsDirectory = "../assets";
 
 	const indexFile = "./index.js";
-	const indexFile2 = "./test.js";
 
 	const walkPublicDirectory = (dir) => {
 		fs.readdirSync(dir)
@@ -44,27 +43,31 @@ const main = () => {
 				if (stats.isDirectory()) {
 					walkPublicDirectory(fullPath);
 				} else if (stats.isFile()) {
-					assests2[camelCaseFileName(file)] =
-						"." + fullPath.replace(allDirectory, "");
-					assests.push(
-						`export { default as ${camelCaseFileName(
-							file
-						)} } from ".${fullPath.replace(allDirectory, "")}";`
-					);
+					const importName = camelCaseFileName(file);
+					const relativePath = "." + fullPath.replace(assetsDirectory, "");
+
+					imports.push(`import ${importName} from "${relativePath}";`);
+					exports.push(importName);
 				}
 			});
 	};
 
-	walkPublicDirectory(allDirectory);
+	walkPublicDirectory(assetsDirectory);
 
-	const allFiles = assests.join("\n");
+	const importStatements = imports.join("\n");
+	const exportStatement = `export const images = {\n${exports
+		.map((exp) => `  ${exp},`)
+		.join("\n")}\n};`;
 
-	fs.writeFile(indexFile, allFiles, (err) => err && console.log("err", err));
-	fs.writeFile(
-		indexFile2,
-		"export const images = " + JSON.stringify(assests2, null, 2),
-		(err) => err && console.log("err", err)
-	);
+	const fileContent = `${importStatements}\n\n${exportStatement}`;
+
+	fs.writeFile(indexFile, fileContent, (err) => {
+		if (err) {
+			console.error("Error writing index.js:", err);
+		} else {
+			console.log("index.js file has been generated.");
+		}
+	});
 
 	console.log("index.js file has been generated.");
 };

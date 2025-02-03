@@ -1,4 +1,3 @@
-import { demoBg } from "@/assets";
 import Container from "@/components/layout/Container";
 import Section from "@/components/layout/Section";
 import Button, { buttonPresets } from "@/components/Theme/Button";
@@ -7,11 +6,13 @@ import Text, { textPresets } from "@/components/Theme/Typography";
 import { COMPANY_NAME } from "@/constants/portfolioData";
 import cn from "@/lib/cn";
 import { icons } from "@/utils/icons";
-import { images } from "@/utils/images";
 import Image from "next/image";
+
+import { images } from "@/assets";
 
 const Test = () => {
 	let isError = false;
+
 	return (
 		<Section>
 			<Container>
@@ -28,7 +29,7 @@ const Test = () => {
 				<Image alt="star" height={50} width={50} src={icons.star} />
 
 				{/* should follow it */}
-				<Image alt="demo_bg" className="h-80 w-full" src={demoBg} />
+				<Image alt="demo_bg" className="h-80 w-full" src={images.demoBg} />
 
 				<h1 className={cn("text-5xl font-jakarta")}>Font JAKARTA</h1>
 				<h1 className={cn("text-5xl font-ibm")}>Font JAKARTA</h1>
