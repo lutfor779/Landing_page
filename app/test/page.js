@@ -31,10 +31,9 @@ const Test = () => {
 				{/* should follow it */}
 				<Image alt="demo_bg" className="h-80 w-full" src={images.demoBg} />
 
-				<h1 className={cn("text-5xl font-jakarta")}>Font JAKARTA</h1>
-				<h1 className={cn("text-5xl font-ibm")}>Font JAKARTA</h1>
-				<h1 className={cn("text-5xl font-source-serif ")}>Font JAKARTA</h1>
-				<p className={cn("text-5xl font-source-serif")}>Font JAKARTA</p>
+				<h1 className={cn("text-5xl font-sans")}>Font JAKARTA</h1>
+				<h1 className={cn("text-5xl font-serif")}>Font JAKARTA</h1>
+
 				<p className="bg-primary text-secondary text-3xl">
 					testing custom color
 				</p>
