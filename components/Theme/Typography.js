@@ -6,7 +6,7 @@ const styles = {
 	bigTitle: "text-3xl",
 	title: "text-2xl",
 	subtitle: "text-xl",
-	caption: "text-lg font-monospace",
+	caption: "font-monospace",
 	base: baseStyle,
 	small: "text-sm",
 	extraSmall: "text-xs",

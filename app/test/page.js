@@ -5,7 +5,6 @@ import Input from "@/components/Theme/InputField";
 import Text, { textPresets } from "@/components/Theme/Typography";
 import { COMPANY_NAME } from "@/constants/portfolioData";
 import cn from "@/lib/cn";
-import { icons } from "@/utils/icons";
 import Image from "next/image";
 
 import { images } from "@/assets";
@@ -25,8 +24,6 @@ const Test = () => {
 				>
 					Test Checkout
 				</h1>
-				<Image alt="demo_bg" width={500} height={300} src={images.demoBg} />
-				<Image alt="star" height={50} width={50} src={icons.star} />
 
 				{/* should follow it */}
 				<Image alt="demo_bg" className="h-80 w-full" src={images.demoBg} />
@@ -60,7 +57,9 @@ const Test = () => {
 				<Text preset={textPresets.title} as="p">
 					Hello testing world
 				</Text>
-				<Text as="span">Hello testing world</Text>
+				<Text as="span" className={"font-black"}>
+					Hello testing world
+				</Text>
 				<Text preset="title" className={"text-6xl"}>
 					Hello testing world
 				</Text>
