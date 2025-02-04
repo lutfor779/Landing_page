@@ -10,6 +10,7 @@
 		Consolas, "Liberation Mono", "Courier New", monospace;
 
 	/* colors */
+	/* --color-*: initial; */
 	--color-primary: #f84923;
 	--color-secondary: #4923f8;
 	--color-accent: #23f849;

@@ -1,19 +1,19 @@
 import cn from "@/lib/cn";
 
-const baseStyle = "text-base";
+const baseStyle = "text-sm md:text-base";
 
 const styles = {
-	bigTitle: "text-3xl",
-	title: "text-2xl",
-	subtitle: "text-xl",
+	heading: " text-2xl md:text-3xl",
+	title: "text-xl md:text-2xl",
+	subtitle: "text-lg md:text-xl",
 	caption: "font-monospace",
 	base: baseStyle,
-	small: "text-sm",
-	extraSmall: "text-xs",
+	small: "text-xs md:text-sm ",
+	extraSmall: "text-[0.625rem] md:text-xs",
 };
 
 const defaultElement = {
-	bigTitle: "h1",
+	heading: "h1",
 	title: "h2",
 	subtitle: "h4",
 	caption: "h6",
@@ -23,7 +23,7 @@ const defaultElement = {
 };
 
 export const textPresets = {
-	bigTitle: "bigTitle",
+	heading: "heading",
 	title: "title",
 	subtitle: "subtitle",
 	caption: "caption",
@@ -43,7 +43,10 @@ const Text = ({
 	const Tag = Element || defaultElement[preset] || "p";
 
 	return (
-		<Tag {...rest} className={cn(baseStyle, appliedStyle, className)}>
+		<Tag
+			{...rest}
+			className={cn(baseStyle, appliedStyle, className, "text-xs")}
+		>
 			{children}
 		</Tag>
 	);

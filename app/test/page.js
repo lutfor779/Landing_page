@@ -48,7 +48,7 @@ const Test = () => {
 				<Input placeholder={"testing "} />
 				<Input preset={"textArea"} placeholder="text area on here" />
 
-				<Text preset={textPresets.bigTitle}>Hello testing world</Text>
+				<Text preset={textPresets.heading}>Hello testing world</Text>
 				<Text preset={textPresets.title}>Hello testing world</Text>
 				<Text preset={textPresets.caption}>Hello testing world</Text>
 				<Text>Hello testing world</Text>
