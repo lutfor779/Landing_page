@@ -51,15 +51,19 @@ const Test = () => {
 				<Input placeholder={"testing "} />
 				<Input preset={"textArea"} placeholder="text area on here" />
 
-				<Text preset={textPresets.h1}>Hello testing world</Text>
-				<Text preset={"h2"}>Hello testing world</Text>
-				<Text preset={"h3"}>Hello testing world</Text>
-				<Text preset={"h4"}>Hello testing world</Text>
-				<Text preset={"h5"}>Hello testing world</Text>
-				<Text preset={"h6"}>Hello testing world</Text>
-				<Text preset={"p"}>Hello testing world</Text>
-				<Text preset={textPresets.span}>Hello testing world</Text>
-				<Text className={"text-6xl"}>Hello testing world</Text>
+				<Text preset={textPresets.bigTitle}>Hello testing world</Text>
+				<Text preset={textPresets.title}>Hello testing world</Text>
+				<Text preset={textPresets.caption}>Hello testing world</Text>
+				<Text>Hello testing world</Text>
+				<Text preset={textPresets.small}>Hello testing world</Text>
+				<Text preset={textPresets.extraSmall}>Hello testing world</Text>
+				<Text preset={textPresets.title} as="p">
+					Hello testing world
+				</Text>
+				<Text as="span">Hello testing world</Text>
+				<Text preset="title" className={"text-6xl"}>
+					Hello testing world
+				</Text>
 
 				<a
 					href="http://"

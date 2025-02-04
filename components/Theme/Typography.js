@@ -3,31 +3,44 @@ import cn from "@/lib/cn";
 const baseStyle = "text-base";
 
 const styles = {
-	h1: "text-9xl",
-	h2: "text-8xl",
-	h3: "text-7xl",
-	h4: "text-6xl",
-	h5: "text-5xl",
-	h6: "text-4xl",
-	p: "text-sm",
-	span: "text-3xl",
+	bigTitle: "text-3xl",
+	title: "text-2xl",
+	subtitle: "text-xl",
+	caption: "text-lg font-monospace",
+	base: baseStyle,
+	small: "text-sm",
+	extraSmall: "text-xs",
+};
+
+const defaultElement = {
+	bigTitle: "h1",
+	title: "h2",
+	subtitle: "h4",
+	caption: "h6",
+	base: "p",
+	small: "p",
+	extraSmall: "p",
 };
 
 export const textPresets = {
-	h1: "h1",
-	h2: "h2",
-	h3: "h3",
-	h4: "h4",
-	h5: "h5",
-	h6: "h6",
-	p: "p",
-	span: "span",
+	bigTitle: "bigTitle",
+	title: "title",
+	subtitle: "subtitle",
+	caption: "caption",
+	base: "base",
+	small: "small",
+	extraSmall: "extraSmall",
 };
 
-const Text = ({ children, preset, className, ...rest }) => {
-	const Tag = textPresets[preset] || "p";
-
-	const appliedStyle = styles[preset] || styles.p;
+const Text = ({
+	children,
+	preset = "base",
+	className,
+	as: Element,
+	...rest
+}) => {
+	const appliedStyle = styles[preset] || baseStyle;
+	const Tag = Element || defaultElement[preset] || "p";
 
 	return (
 		<Tag {...rest} className={cn(baseStyle, appliedStyle, className)}>
