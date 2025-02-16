@@ -1,10 +1,10 @@
 import Container from "@/components/layout/Container";
 import Section from "@/components/layout/Section";
-import Button, { buttonPresets } from "@/components/Theme/Button";
-import Input from "@/components/Theme/InputField";
-import Text, { textPresets } from "@/components/Theme/Typography";
 import { COMPANY_NAME } from "@/constants/portfolioData";
 import cn from "@/lib/cn";
+import Button, { buttonPresets } from "@/Theme/Button";
+import Input from "@/Theme/InputField";
+import Text, { textPresets } from "@/Theme/Typography";
 import Image from "next/image";
 
 import { images } from "@/assets";

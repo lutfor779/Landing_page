@@ -1,11 +1,15 @@
-import Section from "@/components/layout/Section";
+import GetStarted from "@/components/GetStarted";
+import Hero from "@/components/Hero";
+import Intro from "@/components/Intro";
+import Projects from "@/components/Projects";
 
 export default function Home() {
-    return (
-        <Section>
-            <div className="bg-green-200 text-2xl font-medium text-center p-5 italic">
-                <h4>Hello project</h4>
-            </div>
-        </Section>
-    );
+	return (
+		<article>
+			<Hero />
+			<Intro />
+			<Projects />
+			<GetStarted />
+		</article>
+	);
 }

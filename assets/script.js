@@ -68,8 +68,6 @@ const main = () => {
 			console.log("index.js file has been generated.");
 		}
 	});
-
-	console.log("index.js file has been generated.");
 };
 
 main();

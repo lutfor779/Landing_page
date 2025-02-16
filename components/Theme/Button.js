@@ -1,9 +1,11 @@
 import cn from "@/lib/cn";
 
-const baseStyle = "cursor-pointer text-white font-bold py-2 px-4 rounded";
+const baseStyle =
+	"cursor-pointer text-white text-sm font-medium py-3 px-9 rounded-full border border-2 transition-all duration-300 ease-in capitalize";
 
 const buttonStyles = {
-	primary: "bg-blue-500 hover:bg-blue-700",
+	primary:
+		"bg-primary border-primary hover:bg-accent hover:border-accent hover:text-black",
 	secondary: "border border-blue-500 text-blue-500 hover:bg-blue-100",
 	disabled: "cursor-not-allowed opacity-50",
 };

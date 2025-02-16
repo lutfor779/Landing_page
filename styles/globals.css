@@ -10,21 +10,20 @@
 		Consolas, "Liberation Mono", "Courier New", monospace;
 
 	/* colors */
-	/* --color-*: initial; */
+	--color-*: initial;
 	--color-primary: #f84923;
 	--color-secondary: #4923f8;
 	--color-accent: #23f849;
 	--color-white: #ffffff;
 	--color-black: #000000;
 	--color-error: #dc3545;
+	--color-light: #eff9ff;
 }
 
 *,
 *::before,
 *::after {
 	box-sizing: border-box;
-	margin: 0;
-	padding: 0;
 }
 
 body {
