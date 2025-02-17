@@ -7,49 +7,72 @@ import Container from "./Container";
 const menues = ["Home", "About", "Contact"];
 
 const Header = () => {
-	const [isScrolled, setIsScrolled] = useState(false);
+	const [prevScrollY, setPrevScrollY] = useState(0);
+	const [hidden, setHidden] = useState(false);
 	const [menuOpen, setMenuOpen] = useState(false);
+	const [hasBackground, setHasBackground] = useState(false);
 	const menuRef = useRef(null);
+	const menuButtonRef = useRef(null);
 
-	// Handle scrolling effect for header background
 	useEffect(() => {
 		const handleScroll = () => {
-			if (window.scrollY > 150 && !isScrolled) setIsScrolled(true);
-			else if (window.scrollY <= 150 && isScrolled) setIsScrolled(false);
+			const currentScroll = window.scrollY;
 
-			if (menuOpen) setMenuOpen(false);
+			// Hide header when scrolling down
+			if (currentScroll > prevScrollY && currentScroll > 50) {
+				setHidden(true);
+			} else {
+				setHidden(false);
+			}
+
+			// Add background after scrolling 250px
+			if (currentScroll > 250) {
+				setHasBackground(true);
+			} else {
+				setHasBackground(false);
+			}
+
+			// Close mobile menu when scrolling
+			if (menuOpen) {
+				setMenuOpen(false);
+			}
+
+			setPrevScrollY(currentScroll);
 		};
 
 		window.addEventListener("scroll", handleScroll, { passive: true });
 		return () => window.removeEventListener("scroll", handleScroll);
-	}, [isScrolled]);
+	}, [prevScrollY, menuOpen]);
 
 	useEffect(() => {
 		const handleClickOutside = (event) => {
 			if (
 				menuOpen &&
 				menuRef.current &&
-				!menuRef.current.contains(event.target)
+				!menuRef.current.contains(event.target) &&
+				event.target !== menuButtonRef.current
 			) {
 				setMenuOpen(false);
 			}
 		};
 
 		document.addEventListener("mousedown", handleClickOutside);
-		return () => {
-			document.removeEventListener("mousedown", handleClickOutside);
-		};
+		return () => document.removeEventListener("mousedown", handleClickOutside);
 	}, [menuOpen]);
 
 	return (
 		<header
-			className={`fixed top-0 left-0 w-full transition-all duration-300 ease-in-out z-50 ${
-				isScrolled ? "bg-white shadow-md" : "bg-transparent text-white"
+			className={`fixed top-0 left-0 w-full transition-all duration-500 ease-in-out z-50 transform ${
+				hidden ? "-translate-y-full" : "translate-y-0"
+			} ${
+				hasBackground
+					? "bg-white/65 backdrop-blur-md md:shadow-md shadow-none"
+					: "bg-transparent text-white"
 			}`}
 		>
 			<Container className="flex justify-between items-center py-4">
 				{/* Left: Logo */}
-				<Link href="/" className="text-xl font-bold ">
+				<Link href="/" className="text-xl font-bold">
 					Logo
 				</Link>
 
@@ -71,16 +94,17 @@ const Header = () => {
 					className="md:hidden text-2xl"
 					onClick={() => setMenuOpen((prev) => !prev)}
 					aria-label="Toggle Menu"
+					ref={menuButtonRef}
 				>
-					{menuOpen ? "opn" : "cls"}
+					{menuOpen ? "×" : "☰"}
 				</button>
 			</Container>
 
 			{/* Mobile Menu */}
 			{menuOpen && (
 				<div
-					className="md:hidden absolute top-full left-0 w-full bg-white text-black shadow-md py-4"
 					ref={menuRef}
+					className="md:hidden absolute top-full left-0 w-full text-black bg-white/65 backdrop-blur-lg shadow-md py-4"
 				>
 					<nav className="flex flex-col items-center space-y-4">
 						{menues.map((item) => (

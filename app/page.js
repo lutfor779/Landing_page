@@ -5,11 +5,11 @@ import Projects from "@/components/Projects";
 
 export default function Home() {
 	return (
-		<article>
+		<>
 			<Hero />
 			<Intro />
 			<Projects />
 			<GetStarted />
-		</article>
+		</>
 	);
 }
